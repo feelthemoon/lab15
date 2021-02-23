@@ -38,6 +38,7 @@ export class AppComponent {
   onUpdateWorker(updatedWorker: MyWorker){
     const index = this.workers.findIndex((worker) => worker.id === updatedWorker.id);
     if (index !== -1) {
+
       this.workers.splice(index, 1, updatedWorker);
     }
   }
