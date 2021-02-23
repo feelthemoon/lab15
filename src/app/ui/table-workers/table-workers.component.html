@@ -6,16 +6,44 @@
         <thead>
           <tr>
             <th scope="col" [style.width]="'100px'">#</th>
-            <th scope="col" [style.width]="'40%'">Имя</th>
+            <th scope="col" [style.width]="'300px'">Имя</th>
             <th scope="col">Фамилия</th>
-            <th scope="col" [style.width]="'150px'"></th>
+            <th scope="col" [style.width]="'200px'"></th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let worker of workers">
             <th scope="row">{{ worker.id }}</th>
-            <td>{{ worker.name }}</td>
-            <td>{{ worker.surname }}</td>
+            <ng-container *ngIf="editId !== worker.id; else editTemlate">
+              <td>{{ worker.name }}</td>
+              <td>{{ worker.surname }}</td>
+            </ng-container>
+            <ng-template #editTemlate>
+              <td>
+                <input
+                  [(ngModel)]="updatedWorker.name"
+                  type="text"
+                  placeholder="Имя сотрудника"
+                  class="form-control-sm form-control"
+                />
+              </td>
+              <td>
+                <input
+                  [(ngModel)]="updatedWorker.surname"
+                  type="text"
+                  placeholder="Фамилия сотрудника"
+                  class="form-control-sm form-control"
+                />
+              </td>
+              <td>
+                <select class="custom-select custom-select-sm" [(ngModel)]="updatedWorker.type">
+                  <option [ngValue]="myWorkerType.programmer">Программист</option>
+                  <option [ngValue]="myWorkerType.designer">Дизайнер</option>
+                  <option [ngValue]="myWorkerType.copywriter">Рекламщик</option>
+                  <option [ngValue]="myWorkerType.manager">Менеджер</option>
+                </select>
+              </td>
+            </ng-template>
             <td>
               <button
                 class="btn btn-outline-danger btn-sm"
@@ -23,6 +51,21 @@
               >
                 Удалить
               </button>
+            </td>
+            <td>
+              <button
+                class="btn btn-warning btn-sm"
+                *ngIf="editId !== worker.id"
+                (click)="onEditWorker(worker)"
+              >
+                Редактировать
+              </button>
+              <button
+                class="btn btn-success btn-sm"
+                *ngIf="editId === worker.id"
+                (click)="onUpdateWorker()"
+                [disabled]="!(updatedWorker.name && updatedWorker.surname)"
+              > Принять </button>
             </td>
           </tr>
         </tbody>

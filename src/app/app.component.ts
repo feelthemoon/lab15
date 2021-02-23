@@ -20,18 +20,25 @@ export class AppComponent {
   }
 
   onDeleteById(id: number) {
-    let index = this.workers.findIndex((worker) => worker.id === id);
+    const index = this.workers.findIndex((worker) => worker.id === id);
     if (index !== -1) {
       this.workers.splice(index, 1);
     }
   }
 
   onAddWorker(worker) {
-    let id =
+    const id =
       this.workers.length > 0
         ? this.workers[this.workers.length - 1].id + 1
         : 0;
     worker.id = id;
     this.workers.push(worker);
+  }
+
+  onUpdateWorker(updatedWorker: MyWorker){
+    const index = this.workers.findIndex((worker) => worker.id === updatedWorker.id);
+    if (index !== -1) {
+      this.workers.splice(index, 1, updatedWorker);
+    }
   }
 }
