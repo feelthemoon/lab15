@@ -7,12 +7,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 
 import {TableWorkersComponent, AddformWorkerComponent} from "./ui";
+import { FilterByNamePipe } from './shared/pipes/filter-by-name.pipe';
+import { FilterBySurnamePipe } from './shared/pipes/filter-by-surname.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     TableWorkersComponent,
-    AddformWorkerComponent
+    AddformWorkerComponent,
+    FilterByNamePipe,
+    FilterBySurnamePipe
   ],
   imports: [
     BrowserModule,

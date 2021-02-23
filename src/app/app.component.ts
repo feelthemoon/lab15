@@ -12,6 +12,8 @@ import {
 })
 export class AppComponent implements OnInit{
   title = 'Список сотрудников';
+  searchName: string = "";
+  searchSurname: string = "";
   workers: MyWorker[];
   myWorkerType = MyWorkerType;
 
@@ -24,6 +26,8 @@ export class AppComponent implements OnInit{
   async getData(){
     try {
       this.workers = await this.http.getWorker();
+      console.log(this.workers);
+
     } catch (error) {
       console.log(error);
     }

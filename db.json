@@ -1,18 +1,25 @@
 {
   "workers": [
     {
-      "id": 3,
-      "name": "Сидр",
-      "surname": "Сидоров",
-      "phone": "+7 (200) 755-35-32",
-      "type": 2
+      "name": "dsa",
+      "surname": "asd",
+      "phone": "+7 (123) 123-12-31",
+      "type": 3,
+      "id": 1
     },
     {
-      "id": 4,
-      "name": "Василий",
-      "surname": "Васильев",
-      "type": 3,
-      "phone": "+7(300) 855-35-35"
+      "name": "dsa",
+      "surname": "asd",
+      "phone": "+7 (123) 123-12-31",
+      "type": 1,
+      "id": 3
+    },
+    {
+      "name": "dsa",
+      "surname": "asd",
+      "phone": "+7 (123) 123-12-31",
+      "type": 2,
+      "id": 4
     }
   ]
 }

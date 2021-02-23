@@ -6,7 +6,7 @@ import { MyWorker } from '../worker.model';
   providedIn: 'root'
 })
 export class HttpService {
-  private readonly routeApi = 'http://localhost:3000/workers';
+  private readonly routeApi = 'http://localhost:5000/workers';
   constructor(private http:HttpClient) { }
   getWorker():Promise<any>{
     return this.http.get(this.routeApi).toPromise();
